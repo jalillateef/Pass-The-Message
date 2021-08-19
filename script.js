@@ -9,6 +9,9 @@ window.addEventListener('DOMContentLoaded', function(){
 
 
 submitBtn.addEventListener('click', function(e){
+    if(input.value.length >= 1){
+    deliveredMsg.textContent = input.value
+    }
     if (input.value === ""){
 // Display alert
         alert.style.display = "block";
@@ -17,26 +20,23 @@ submitBtn.addEventListener('click', function(e){
         function closeAlert(){
             alert.style.display = "none";
         }
-    }else{
-        deliveredMsg.textContent = input.value
-        input.value = ""
+        deliveredMsg.textContent != input.value
     }
-
-    }
-)
-
+})
+    
 input.addEventListener('keydown', function(e){
+    if(e.key === "Enter" & input.value.length >= 1){
+        e.preventDefault()
+        deliveredMsg.textContent = input.value
+        }
     if(e.key === "Enter" & input.value === ""){
+        e.preventDefault()
         alert.style.display = "block";
         window.setTimeout(closeAlert, 3000);
         function closeAlert(){
             alert.style.display = "none";
         }
-    }
-    if (e.key === "Enter"){
-        e.preventDefault()
-        deliveredMsg.textContent = input.value
-        input.value = ""
+        deliveredMsg.textContent != input.value
     }
 })
 
